@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StylistPro.Produto.Domain.Entities
 {
-    [Table("tb_produto")]
+    [Table("TB_PRODUTO")]
     public class ProdutoEntity
     {
         [Key]
