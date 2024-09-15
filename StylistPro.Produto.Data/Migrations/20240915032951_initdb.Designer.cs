@@ -11,7 +11,7 @@ using StylistPro.Produto.Data.AppData;
 namespace StylistPro.Produto.Data.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240915003234_initdb")]
+    [Migration("20240915032951_initdb")]
     partial class initdb
     {
         /// <inheritdoc />
@@ -42,7 +42,7 @@ namespace StylistPro.Produto.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tb_produto");
+                    b.ToTable("TB_PRODUTO");
                 });
 #pragma warning restore 612, 618
         }

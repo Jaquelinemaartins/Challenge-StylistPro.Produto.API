@@ -39,7 +39,7 @@ namespace StylistPro.Produto.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tb_produto");
+                    b.ToTable("TB_PRODUTO");
                 });
 #pragma warning restore 612, 618
         }
