@@ -70,23 +70,23 @@ A arquitetura apresentada para o projeto **StylistPro** segue os princípios da 
 ![Challenge](https://github.com/user-attachments/assets/45f43440-f88a-486e-b5e6-06880e347b5c)
 
 
-### 1. **Mobile Client**:
+### 1. **Mobile Client:**
    - Este é o ponto de entrada do sistema, representando o cliente móvel que acessa o serviço **StylistPro**. Os pedidos realizados pelo cliente são direcionados ao **API Gateway**, que orquestra as chamadas de API para os microserviços.
 
-### 2. **API Gateway**:
+### 2. **API Gateway:**
    - O **API Gateway** atua como um ponto central de entrada para todas as requisições feitas pelos usuários. Ele recebe as solicitações vindas do cliente e as direciona para as APIs correspondentes, garantindo o roteamento adequado. O **API Gateway** pode agregar, transformar ou autenticar as requisições antes de repassá-las para as APIs de **Compra**, **Feedback** ou **Produto**.
 
-### 3. **APIs (Compra, Feedback, Produto)**:
+### 3. **APIs (Compra, Feedback, Produto):**
    - As três APIs que fazem parte do sistema, **Compra**, **Feedback** e **Produto**, são responsáveis por lidar com as funcionalidades específicas de cada um desses domínios. Essas APIs estão desacopladas, ou seja, cada uma delas é responsável por um conjunto de funcionalidades específico e pode ser desenvolvida e mantida independentemente.
    - Essas APIs seguem o padrão da **Onion Architecture**, que promove a separação de responsabilidades em camadas (domínio, aplicação, infraestrutura) e o princípio da inversão de dependências.
 
-### 4. **Banco de Dados (Oracle)**:
+### 4. **Banco de Dados (Oracle):**
    - Cada API está conectada ao banco de dados Oracle. Esses bancos de dados armazenam informações referentes ao domínio de cada API:
      - A API de **Compra** acessa o banco de dados que armazena data e status da compra.
      - A API de **Feedback** gerencia o banco de dados que mantém as avaliações e comentários dos usuários.
      - A API de **Produto** trabalha com o banco de dados que contém o nome e descrição dos produtos.
 
-### 5. **Arquitetura (Onion Architecture)**:
+### 5. **Arquitetura (Onion Architecture):**
    - A **Onion Architecture** é um estilo arquitetural que segue o princípio de inversão de dependência e separa as responsabilidades do sistema em camadas. Cada camada depende apenas das camadas mais internas, de modo a evitar dependências cíclicas e promover um design mais modular.
      - **Camada de Domínio**: A camada mais central, que contém as regras de negócio e entidades de domínio. Esta camada é agnóstica à infraestrutura e se preocupa apenas com a lógica de negócios.
      - **Camada de Aplicação**: Gerencia os casos de uso do sistema, orquestra a interação entre o domínio e a infraestrutura (como APIs, bancos de dados, etc.).
