@@ -100,8 +100,8 @@ A imagem descreve uma arquitetura que utiliza um **API Gateway** para gerenciar 
 - **OpenAPI/Swagger: Configurado para gerar a documentação da API, facilitando o entendimento e o uso por desenvolvedores.**
 
 ## Requisitos
-- **.NET SDK 6.0 ou superior**
-- **Visual Studio 2022 ou VS Code**
+- **.NET SDK 8.0**
+- **Visual Studio 2022 ou Visual Studio Code**
 - **Oracle Database (com conexão configurada)**
 - **Ferramenta de gerenciamento de dependências**
 
@@ -139,3 +139,19 @@ dotnet run
 Após executar a API, navegue até http://localhost:<porta>/swagger para visualizar e interagir com a documentação.
 ```
 
+### 7. No caso de erro no banco de dados: Se houver inconsistências entre o código e o banco de dados, você pode gerar e aplicar migrations para corrigir a estrutura do banco.
+```
+Remove-Migration
+```
+```
+Add-Migration <nome-da-migração>
+```
+```
+Update-Database
+```
+
+## Testando a API
+A **StylistPro** utiliza o Swagger para expor os endpoints de forma interativa. Abra a URL fornecida após executar a API e você verá a documentação da API com opções para testar cada endpoint.
+
+## Contato
+Para qualquer dúvida ou sugestão, entre em contato com victor.fsilva45@gmail.com
