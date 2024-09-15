@@ -10,7 +10,6 @@ builder.Services.AddDbContext<ApplicationContext>(options => {
     options.UseOracle(builder.Configuration["ConnectionStrings:Oracle"]);
 });
 
-
 builder.Services.AddTransient<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddTransient<IProdutoApplicationService, ProdutoApplicationService>();
 
