@@ -82,9 +82,9 @@ A arquitetura apresentada para o projeto **StylistPro** segue os princípios da 
 
 ### 4. **Banco de Dados (Oracle)**:
    - Cada API está conectada ao banco de dados Oracle. Esses bancos de dados armazenam informações referentes ao domínio de cada API:
-     - A API de **Compra** acessa o banco de dados que armazena transações e pedidos.
+     - A API de **Compra** acessa o banco de dados que armazena data e status da compra.
      - A API de **Feedback** gerencia o banco de dados que mantém as avaliações e comentários dos usuários.
-     - A API de **Produto** trabalha com o banco de dados que contém o catálogo de produtos.
+     - A API de **Produto** trabalha com o banco de dados que contém o nome e descrição dos produtos.
 
 ### 5. **Arquitetura (Onion Architecture)**:
    - A **Onion Architecture** é um estilo arquitetural que segue o princípio de inversão de dependência e separa as responsabilidades do sistema em camadas. Cada camada depende apenas das camadas mais internas, de modo a evitar dependências cíclicas e promover um design mais modular.
