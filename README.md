@@ -8,7 +8,7 @@
 - RM99982  - Victor Freitas Silva   
 
 ## Visão Geral
-Esta API foi desenvolvida utilizando uma arquitetura de microservices e segue os princípios de um sistema escalável e modular. As principais funcionalidades são a implementação de operações CRUD (Create, Read, Update e Delete) utilizando o banco de dados ORACLE e a documentação da API configurada com OpenAPI. O padrão de design Singleton também foi aplicado para controlar instâncias específicas durante a execução.
+Esta API foi desenvolvida utilizando uma arquitetura de microservices e segue os princípios de um sistema escalável e modular. As principais funcionalidades são a implementação de operações CRUD (Create, Read, Update e Delete) utilizando o banco de dados Azure SqlServer e a documentação da API configurada com OpenAPI. O padrão de design Singleton também foi aplicado para controlar instâncias específicas durante a execução.
 
 ## Estrutura de Camadas
 
@@ -63,11 +63,6 @@ A API foi desenvolvida seguindo a **arquitetura de microservices**, o que permit
 - **Facilidade de Manutenção e Atualização**
 - **Agilidade**
 
-## Arquitetura
-
-A arquitetura apresentada para o projeto **StylistPro** segue os princípios da **Onion Architecture**, utilizada para construir sistemas com alta desacoplagem entre camadas. Vamos detalhar os componentes da imagem:
-
-![Challenge](https://github.com/user-attachments/assets/6938d6f4-8fd5-4bab-b3a1-5357b5730980)
 
 ### 1. **Mobile Client:**
    - Este é o ponto de entrada do sistema, representando o cliente móvel que acessa o serviço **StylistPro**. Os pedidos realizados pelo cliente são direcionados ao **API Gateway**, que orquestra as chamadas de API para os microserviços.
@@ -79,29 +74,21 @@ A arquitetura apresentada para o projeto **StylistPro** segue os princípios da 
    - As três APIs que fazem parte do sistema, **Compra**, **Feedback** e **Produto**, são responsáveis por lidar com as funcionalidades específicas de cada um desses domínios. Essas APIs estão desacopladas, ou seja, cada uma delas é responsável por um conjunto de funcionalidades específico e pode ser desenvolvida e mantida independentemente.
    - Essas APIs seguem o padrão da **Onion Architecture**, que promove a separação de responsabilidades em camadas (domínio, aplicação, infraestrutura) e o princípio da inversão de dependências.
 
-### 4. **Banco de Dados (Oracle):**
-   - Cada API está conectada ao banco de dados Oracle. Esses bancos de dados armazenam informações referentes ao domínio de cada API:
-     - A API de **Compra** acessa o banco de dados que armazena data e status da compra.
-     - A API de **Feedback** gerencia o banco de dados que mantém as avaliações e comentários dos usuários.
-     - A API de **Produto** trabalha com o banco de dados que contém o nome e descrição dos produtos.
-
-### 5. **Arquitetura (Onion Architecture):**
+### 4. **Arquitetura (Onion Architecture):**
    - A **Onion Architecture** é um estilo arquitetural que segue o princípio de inversão de dependência e separa as responsabilidades do sistema em camadas. Cada camada depende apenas das camadas mais internas, de modo a evitar dependências cíclicas e promover um design mais modular.
      - **Camada de Domínio**: A camada mais central, que contém as regras de negócio e entidades de domínio. Esta camada é agnóstica à infraestrutura e se preocupa apenas com a lógica de negócios.
      - **Camada de Aplicação**: Gerencia os casos de uso do sistema, orquestra a interação entre o domínio e a infraestrutura (como APIs, bancos de dados, etc.).
-     - **Camada Externa (Infraestrutura)**: Interage com frameworks, bibliotecas externas e provedores de dados, como o banco de dados Oracle. É aqui que as dependências externas se conectam ao sistema.
+     - **Camada Externa (Infraestrutura)**: Interage com frameworks, bibliotecas externas e provedores de dados, como o banco de dados Azure SqlServer. É aqui que as dependências externas se conectam ao sistema.
 
 A imagem descreve uma arquitetura que utiliza um **API Gateway** para gerenciar solicitações de um cliente móvel, direcionando-as para APIs independentes, cada uma gerenciando um banco de dados Oracle dedicado. Essas APIs seguem o padrão **Onion Architecture**, o que garante uma estrutura modular, flexível e de fácil manutenção, promovendo a separação de responsabilidades entre lógica de negócios, orquestração e infraestrutura.
 
 ## Tecnologias Utilizadas
-- **Oracle Database: Utilizado para operações CRUD.**
 - **ASP.NET Core: Framework utilizado para o desenvolvimento da API.**
 - **OpenAPI/Swagger: Configurado para gerar a documentação da API, facilitando o entendimento e o uso por desenvolvedores.**
 
 ## Requisitos
 - **.NET SDK 8.0**
 - **Visual Studio 2022 ou Visual Studio Code**
-- **Oracle Database (com conexão configurada)**
 - **Ferramenta de gerenciamento de dependências**
 
 ## Instruções para Executar a API
@@ -121,10 +108,10 @@ cd StylistPro.Produto.API
 dotnet restore
 ```
 
-### 4. Configure a string de conexão com o banco de dados ORACLE no arquivo appsettings.json:
+### 4. Configure a string de conexão com o banco de dados Azure SqlServer no arquivo appsettings.json:
 ```
 "ConnectionStrings": {
-  "Oracle": "Data Source=<oracle-db-url>;User Id=<username>;Password=<password>;"
+  "SqlServer": "Data Source=<sqlserver-db-url>;User Id=<username>;Password=<password>;"
 }
 ```
 
