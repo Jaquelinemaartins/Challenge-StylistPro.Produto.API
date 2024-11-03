@@ -107,38 +107,47 @@ A imagem descreve uma arquitetura que utiliza um **API Gateway** para gerenciar 
 ## Instruções para Executar a API
 
 ### 1. Clone o repositório:
+```
 git clone <link-do-repositorio>
-
+```
 
 ### 2. Navegue até a pasta do projeto:
+```
 cd StylistPro.Produto.API
-
+```
 
 ### 3. Restaure os pacotes NuGet:
+```
 dotnet restore
-
+```
 
 ### 4. Configure a string de conexão com o banco de dados ORACLE no arquivo appsettings.json:
+```
 "ConnectionStrings": {
   "Oracle": "Data Source=<oracle-db-url>;User Id=<username>;Password=<password>;"
 }
-
+```
 
 ### 5. Execute a aplicação:
+```
 dotnet run
-
+```
 
 ### 6. Acesse a documentação da API gerada pelo Swagger:
+```
 Após executar a API, navegue até http://localhost:<porta>/swagger para visualizar e interagir com a documentação.
-
+```
 
 ### 7. No caso de erro no banco de dados: Se houver inconsistências entre o código e o banco de dados, você pode gerar e aplicar migrations para corrigir a estrutura do banco.
+```
 Remove-Migration
-
+```
+```
 Add-Migration <nome-da-migração>
-
+```
+```
 Update-Database
-
+```
 
 ## Testando a API
 A **StylistPro** utiliza o Swagger para expor os endpoints de forma interativa. Abra a URL fornecida após executar a API e você verá a documentação da API com opções para testar cada endpoint.
